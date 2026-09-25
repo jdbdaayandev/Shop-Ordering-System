@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->foreignId('category')->nullable()->constrained('categories')->nullOnDelete();
             $table->decimal('price', 10, 2);
             $table->integer('stock_quantity');
+            $table->string('image');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class OrderController extends Controller
 {
@@ -12,7 +13,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('index', compact('categories'));
+    }
+
+    public function order_desc()
+    {
+        return view('pages.item-description');
     }
 
     /**
