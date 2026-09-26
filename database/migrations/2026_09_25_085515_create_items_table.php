@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('item_number');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->foreignId('category')->nullable()->constrained('categories')->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
             $table->decimal('price', 10, 2);
             $table->integer('stock_quantity');
             $table->string('image');
